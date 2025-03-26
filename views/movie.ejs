@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movie ? movie.Title : 'Movie Details' %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <% if (movie) { %>
+            <h1><%= movie.Title %> (<%= movie.Year %>)</h1>
+            <div class="movie-details">
+                <img src="<%= movie.Poster %>" alt="<%= movie.Title %>">
+                <div class="movie-info">
+                    <p><strong>Genre:</strong> <%= movie.Genre %></p>
+                    <p><strong>Director:</strong> <%= movie.Director %></p>
+                    <p><strong>Actors:</strong> <%= movie.Actors %></p>
+                    <p><strong>Plot:</strong> <%= movie.Plot %></p>
+                    <p><strong>IMDB Rating:</strong> <%= movie.imdbRating %></p>
+
+                    <!-- Embed YouTube Trailer -->
+                    <div class="trailer">
+                        <h2>Watch Trailer</h2>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_TRAILER_ID" frameborder="0" allowfullscreen></iframe>
+                    </div>
+
+                    <a href="/" class="back-button">Back to Search</a>
+                </div>
+            </div>
+        <% } else { %>
+            <p>No movie details available.</p>
+        <% } %>
+    </div>
+</body>
+</html>
